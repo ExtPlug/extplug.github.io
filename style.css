@@ -1,0 +1,42 @@
+body {
+  font-family: Ubuntu Light, sans-serif, Helvetica;
+}
+header.navbar {
+  background: #291f28;
+  margin-bottom: 0;
+  font-size: 1.7rem;
+}
+header.navbar a {
+  color: #fff;
+}
+header.navbar a:hover {
+  background-color: #3b2c39;
+}
+main.intro {
+  background: #291f28;
+  color: #fff;
+  text-align: center;
+}
+main.intro h1 {
+  font-size: 7rem;
+}
+main.intro .lead {
+  font-size: 2.1rem;
+}
+main.intro .install {
+  font-size: 2.1rem;
+  line-height: 1.4;
+  margin: -8px 5px;
+  padding: 8px 16px;
+  border-color: #fff;
+  color: #fff;
+  font-weight: 300;
+}
+main.intro .install:hover {
+  background: #fff;
+  color: #291f28;
+}
+section.installation .install {
+  background: #291f28;
+  color: #fff;
+}

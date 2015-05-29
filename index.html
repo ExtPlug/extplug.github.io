@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ExtPlug</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <header class="navbar navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./index.html"> ExtPlug </a>
+      </div>
+      <nav>
+        <ul class="nav navbar-nav">
+          <li><a href="#installation">Installation</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://github.com/ExtPlug">Github</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="intro">
+    <div class="container">
+      <h1>ExtPlug</h1>
+      <p class="lead">
+        ExtPlug is an advanced, flexible extension for <a href="https://plug.dj">plug.dj</a>.
+      </p>
+      <p class="lead">
+        Install as
+        <a class="btn btn-lg install" href="javascript:(function(){ $.getScript('https://extplug.github.io/ExtPlug/extplug.js') }());">
+          Bookmarklet
+        </a>
+        <a class="btn btn-lg install" href="https://extplug.github.io/ExtPlug/extplug.user.js" target="_blank">
+          Userscript
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <section class="installation" id="installation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Installation</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Bookmark</h3>
+          <p>
+            The easiest way to use ExtPlug is to install the below bookmarklet
+            by dragging it to your bookmarks bar. Then, simply press the
+            bookmark on a plug.dj page to start using ExtPlug!
+          </p>
+          <p>
+            <a id="bookmarklet" class="btn btn-lg install" href="javascript:(function(){ $.getScript('https://extplug.github.io/ExtPlug/extplug.js') }());">
+              Bookmarklet
+            </a>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h3>Userscript</h3>
+          <p>
+            If you want to auto-load ExtPlug every time you open up plug.dj,
+            without one of the ExtPlug browser extensions, you can use the
+            userscript version instead. Install the Greasemonkey addon for
+            Firefox, or the Tampermonkey extension for Chrome, and press the
+            button below!
+          </p>
+          <p>
+            <a id="userscript" class="btn btn-lg install" href="https://extplug.github.io/ExtPlug/extplug.user.js" target="_blank">
+              Userscript
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
