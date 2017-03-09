@@ -2,7 +2,7 @@ const opts = require('minimist')(process.argv.slice(2))
 
 const metalsmith = require('metalsmith')
 const layouts = require('metalsmith-layouts')
-const less = require('metalsmith-less')
+const postcss = require('metalsmith-postcss')
 const browserify = require('metalsmith-browserify')
 const serve = require('metalsmith-serve')
 const watch = require('metalsmith-watch')
@@ -10,9 +10,21 @@ const babelify = require('babelify')
 
 const production = process.env.NODE_ENV === 'production'
 
+const postcssPlugins = {
+  'postcss-cssnext': {
+    features: {
+      autoprefixer: false
+    }
+  }
+}
+
+if (production) {
+  postcssPlugins.cssnano = {}
+}
+
 const compiler = metalsmith(__dirname)
   .use(layouts('handlebars'))
-  .use(less())
+  .use(postcss({ plugins: postcssPlugins }))
   .use(browserify({
     dest: 'discover.js',
     entries: ['src/discover/app.js'],

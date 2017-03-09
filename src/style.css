@@ -1,15 +1,17 @@
-@color: #291f28;
+:root {
+  --color: #291f28;
+}
 
 body {
   font-family: Open Sans, Ubuntu Light, sans-serif, Helvetica;
 }
 
 header.navbar {
-  background: @color;
+  background: var(--color);
   margin-bottom: 0;
   font-size: 1.7rem;
 
-  a {
+  & a {
     color: #fff;
 
     &:hover {
@@ -19,19 +21,19 @@ header.navbar {
 }
 
 main.intro {
-  background: @color;
+  background: var(--color);
   color: #fff;
   text-align: center;
 
-  h1 {
+  & h1 {
     font-size: 7rem;
   }
 
-  .lead {
+  & .lead {
     font-size: 2.1rem;
   }
 
-  .install {
+  & .install {
     font-size: 2.1rem;
     line-height: 1.4;
     margin: -8px 5px;
@@ -42,14 +44,14 @@ main.intro {
 
     &:hover {
       background: #fff;
-      color: @color;
+      color: var(--color);
     }
   }
 }
 
 section.installation {
-  .install {
-    background: @color;
+  & .install {
+    background: var(--color);
     color: #fff;
   }
 }
