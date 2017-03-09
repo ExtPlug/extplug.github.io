@@ -9,7 +9,7 @@ function search (query, isFirst = false) {
   fetch(`${API_URL}/search?q=keywords:extplug-plugin ${encodeURIComponent(query)}`)
     .then((response) => response.json())
     .then((results) => {
-      searchResults = results.results
+      searchResults = results.results.map((result) => result.package)
       render()
 
       const scrollTarget = searchRoot.offsetTop - 20
@@ -35,12 +35,12 @@ function SearchInput () {
   `
 }
 
-function Plugin ({ package }) {
+function Plugin ({ name, description }) {
   return yo`
     <li class="list-group-item">
-      <h4 class="list-group-item-heading">${package.name}</h4>
+      <h4 class="list-group-item-heading">${name}</h4>
       <p class="list-group-item-text">
-        ${package.description}
+        ${description}
       </p>
       <p class="list-group-item-text">
         <button class="btn btn-primary">Install</button>
