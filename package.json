@@ -2,6 +2,7 @@
   "private": true,
   "name": "extplug.github.io",
   "dependencies": {
+    "metalsmith-serve": "^0.0.7",
     "yo-yo": "^1.4.0"
   },
   "devDependencies": {
@@ -11,10 +12,13 @@
     "metalsmith": "^2.3.0",
     "metalsmith-browserify": "^0.2.4",
     "metalsmith-layouts": "^1.8.0",
-    "metalsmith-less": "^2.0.0"
+    "metalsmith-less": "^2.0.0",
+    "metalsmith-watch": "^1.0.3",
+    "minimist": "^1.2.0"
   },
   "scripts": {
     "build": "node metalsmith",
+    "watch": "node metalsmith --watch",
     "serve": "ecstatic build"
   }
 }
