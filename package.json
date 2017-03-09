@@ -1,6 +1,16 @@
 {
   "private": true,
   "name": "extplug.github.io",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "ecstatic": "^2.1.0",
+    "handlebars": "^4.0.6",
+    "metalsmith": "^2.3.0",
+    "metalsmith-layouts": "^1.8.0",
+    "metalsmith-less": "^2.0.0"
+  },
+  "scripts": {
+    "build": "node metalsmith",
+    "serve": "ecstatic build"
   }
 }
