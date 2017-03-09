@@ -5,12 +5,17 @@ const debounce = require('debounce')
 let searchResults = []
 
 const API_URL = 'https://api.npms.io/v2'
-function search (query) {
+function search (query, isFirst = false) {
   fetch(`${API_URL}/search?q=keywords:extplug-plugin ${encodeURIComponent(query)}`)
     .then((response) => response.json())
     .then((results) => {
       searchResults = results.results
       render()
+
+      const scrollTarget = searchRoot.offsetTop - 20
+      if (!isFirst && window.scrollY < scrollTarget) {
+        window.scrollTo(0, scrollTarget)
+      }
     })
 }
 
@@ -62,7 +67,7 @@ const root = document.getElementById('discover')
 const el = App()
 root.appendChild(el)
 
-search('')
+search('', true)
 
 const searchRoot = document.getElementById('discover-search')
 searchRoot.appendChild(SearchInput())
