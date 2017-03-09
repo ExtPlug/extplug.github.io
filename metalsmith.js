@@ -6,7 +6,6 @@ const postcss = require('metalsmith-postcss')
 const browserify = require('metalsmith-browserify')
 const serve = require('metalsmith-serve')
 const watch = require('metalsmith-watch')
-const babelify = require('babelify')
 
 const production = process.env.NODE_ENV === 'production'
 
@@ -22,28 +21,35 @@ if (production) {
   postcssPlugins.cssnano = {}
 }
 
+const bundler = browserify({
+  dest: 'discover.js',
+  entries: ['src/discover/app.js']
+})
+
+bundler.bundle.transform('babelify', {
+  presets: [
+    ['env', {
+      targets: {
+        uglify: production,
+        browsers: 'last 2 versions'
+      }
+    }]
+  ],
+  plugins: [
+    'yo-yoify'
+  ]
+})
+
+if (production) {
+  bundler.bundle.transform('uglifyify', {
+    global: true
+  })
+}
+
 const compiler = metalsmith(__dirname)
   .use(layouts('handlebars'))
   .use(postcss({ plugins: postcssPlugins }))
-  .use(browserify({
-    dest: 'discover.js',
-    entries: ['src/discover/app.js'],
-    transform: [
-      babelify.configure({
-        presets: [
-          ['env', {
-            targets: {
-              uglify: production,
-              browsers: 'last 2 versions'
-            }
-          }]
-        ],
-        plugins: [
-          'yo-yoify'
-        ]
-      })
-    ]
-  }))
+  .use(bundler)
 
 if (opts.watch) {
   compiler.use(serve({ port: opts.port || process.env.PORT || 8080 }))
